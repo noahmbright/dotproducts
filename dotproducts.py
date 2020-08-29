@@ -1,14 +1,13 @@
 from tkinter import *
-from flask import Flask
 
-
-
+#Take the complex conjugate of a vector's components
 def hermcon(psi):
     psibar = []
     for i in range(len(psi)):
         psibar.append(complex(psi[i].real,-psi[i].imag))
     return psibar
 
+#take a dot product
 def innerprod(a,b):
     sum = 0
     c = hermcon(a)
@@ -17,10 +16,12 @@ def innerprod(a,b):
         sum += prod
     return sum
 
+#return the modulus squared of the dot product
 def squaremod(z):
     return((z.real)**2 + (z.imag)**2)
 
 
+#make a gui using Tkinter that takes in 2 vectors as comma separated lists of complex numbers
 root = Tk()
 
 v1input = Text(root, height = 1, borderwidth = 5, spacing1 = 1)
